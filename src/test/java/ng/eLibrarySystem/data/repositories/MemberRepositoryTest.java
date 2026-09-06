@@ -30,7 +30,8 @@ public class MemberRepositoryTest {
     @Test
     public void testCreateMember() {
 
-        member.setFullName("Olukayode Kaynot");
+        member.setFirstName("Olukayode");
+        member.setLastName("Knut");
         member.setEmail("kaynot@gmail.com");
         member.setPassword("password");
         member.setPhone("08012345678");
