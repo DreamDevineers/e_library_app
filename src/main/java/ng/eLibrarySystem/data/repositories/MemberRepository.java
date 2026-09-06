@@ -7,13 +7,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository extends MongoRepository<Member,String> {
-    Member save(String id, Member member);
-    List<Member> findAll();
-    Optional<Member> findById(String id);
-    Member findMemberByEmail(String email);
+public interface MemberRepository extends MongoRepository<Member, String> {
+
+    Optional<Member> findByEmail(String email);
     List<Member> findByStatus(MemberStatus status);
-    void disable(String id);
-    void enable(String id);
-    List<Member> findActive();
+    List<Member> findByStatusNot(MemberStatus status);
 }
