@@ -1,6 +1,6 @@
-package ng.eLibrarySystem.dtos;
+package ng.eLibrarySystem.dtos.responses;
 
-public class RegisterMemberDto {
+public class RegisterMember {
     private String fullName;
     private String email;
     private String password;
