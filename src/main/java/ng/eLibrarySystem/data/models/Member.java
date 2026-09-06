@@ -13,11 +13,16 @@ public class Member {
 
     @Id
     private String id;
-    private String fullName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String phone;
     private String address;
     private MemberStatus status = MemberStatus.ACTIVE;
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 }
