@@ -38,6 +38,24 @@ class MemberServiceTest {
     }
 
     @Test
+    void findMemberByEmail() {
+        CreateMemberRequest request = new CreateMemberRequest();
+        request.setFirstName("Clem");
+        request.setEmail("clet@gmail.com");
+        request.setLastName("Nwafor");
+        request.setPassword("clet001");
+        memberService.createMember(request);
+        assertEquals("clet@gmail.com", request.getEmail());
+    }
+
+    @Test
+    void findUnregisteredEmail() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            memberService.getMemberByEmail("clet001@gmail.com");
+        });
+    }
+
+    @Test
     void testCreateMemberWithSameEmail() {
 
         CreateMemberRequest firstRequest = new CreateMemberRequest();

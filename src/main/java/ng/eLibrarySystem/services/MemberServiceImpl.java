@@ -48,14 +48,20 @@ public class MemberServiceImpl implements MemberService {
         return response;
     }
 
-    @Override
-    public Member getMemberById(String id) {
-        return null;
-    }
+        @Override
+        public Member getMemberById(String id) {
+            if(memberRepository.findById(id).isPresent()) return memberRepository.findById(id).get();
+            else throw new IllegalArgumentException("Member not found");
+        }
 
     @Override
     public Member getMemberByEmail(String email) {
-        return null;
+        Member member = memberRepository.findByEmail(email);
+        if (member != null) {
+            return member;
+        } else {
+            throw new IllegalArgumentException("Email not registered");
+        }
     }
 
     @Override
