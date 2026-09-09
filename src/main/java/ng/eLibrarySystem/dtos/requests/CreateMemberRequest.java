@@ -1,7 +1,11 @@
 package ng.eLibrarySystem.dtos.requests;
 
-public class RegisterMember {
-    private String fullName;
+import lombok.Data;
+
+@Data
+public class CreateMemberRequest {
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private String phone;

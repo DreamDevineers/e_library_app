@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.mongodb.test.autoconfigure.DataMongoTest;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataMongoTest
-public class MemberRepositoryTest {
+class MemberRepositoryTest {
 
     @Autowired
     private MemberRepository repository;
+
     private Member member;
 
     @BeforeEach
@@ -24,11 +24,11 @@ public class MemberRepositoryTest {
 
     @Test
     void testEmptyRepository() {
-        assertNull(repository);
+        assertEquals(0, repository.count());
     }
 
     @Test
-    public void testCreateMember() {
+    void testCreateMember() {
 
         member.setFirstName("Olukayode");
         member.setLastName("Knut");
